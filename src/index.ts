@@ -31,9 +31,14 @@ const identifier = ( value: unknown ): string => {
   if ( type === 'object' || type === 'function' || type === 'symbol' ) {
 
     const cache = ( !SUPPORTS_SYMBOLS_AS_WEAKMAP_KEYS && type === 'symbol' ) ? cacheStrong : cacheWeak;
-    const id = cache.get ( value ) || counter++;
+    const cachedId = cache.get ( value );
+    const id = cachedId || counter++;
 
-    cache.set ( value, id );
+    if ( !cachedId ) {
+
+      cache.set ( value, id );
+
+    }
 
     return `c${id}`;
 
