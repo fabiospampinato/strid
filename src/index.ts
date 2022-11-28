@@ -9,15 +9,15 @@ let {is} = Object;
 
 const identifier = ( value: any ): string => {
 
-  const type = ( typeof value );
-
   if ( value === null ) return 'n';
 
-  if ( type === 'undefined' ) return 'u';
+  if ( value === undefined ) return 'u';
+
+  const type = ( typeof value );
 
   if ( type === 'boolean' ) return value ? 't' : 'f';
 
-  if ( type === 'number' ) return `${is ( value, -0 ) ? '-0' : value}`;
+  if ( type === 'number' ) return is ( value, -0 ) ? '-0' : `${value}`;
 
   if ( type === 'bigint' ) return `${value}n`;
 
