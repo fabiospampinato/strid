@@ -6,8 +6,8 @@ Get a unique string identifier for any input value.
 
 - All values that are the same according to `Object.is` will have the same string identifier.
 - All values that are different according to `Object.is` will have different string identifiers.
-- Symbols are supported only if the engine you are using supports using symbols as keys in WeakMaps.
-- Records and Tuples are not currently supported yet, the function will throw for unknown types like that.
+- If your engine hasn't implemented [this](https://github.com/tc39/proposal-symbols-as-weakmap-keys) proposal then input symbols will be kept in memory indefinitely.
+- Records and Tuples are not supported yet, the function will throw for unknown types like that.
 
 ## Install
 
@@ -32,6 +32,7 @@ strid ( () => {} ); // => 'c1';
 strid ( () => {} ); // => 'c2';
 strid ( {} ); // => 'c3';
 strid ( [] ); // => 'c4';
+strid ( Symbol () ); // -> 'c5'
 ```
 
 ## License

@@ -55,7 +55,7 @@ describe ( 'Strid', it => {
 
   });
 
-  it.skip ( 'supports symbols', t => {
+  it ( 'supports symbols', t => {
 
     const symbol1 = Symbol ();
     const symbol2 = Symbol ();
@@ -72,10 +72,10 @@ describe ( 'Strid', it => {
     const fn1 = () => {};
     const fn2 = () => {};
 
-    t.is ( strid ( fn1 ), 'c1' );
-    t.is ( strid ( fn1 ), 'c1' );
-    t.is ( strid ( fn2 ), 'c2' );
-    t.is ( strid ( fn2 ), 'c2' );
+    t.is ( strid ( fn1 ), 'c3' );
+    t.is ( strid ( fn1 ), 'c3' );
+    t.is ( strid ( fn2 ), 'c4' );
+    t.is ( strid ( fn2 ), 'c4' );
 
   });
 
@@ -84,10 +84,10 @@ describe ( 'Strid', it => {
     const obj1 = {};
     const obj2 = {};
 
-    t.is ( strid ( obj1 ), 'c3' );
-    t.is ( strid ( obj1 ), 'c3' );
-    t.is ( strid ( obj2 ), 'c4' );
-    t.is ( strid ( obj2 ), 'c4' );
+    t.is ( strid ( obj1 ), 'c5' );
+    t.is ( strid ( obj1 ), 'c5' );
+    t.is ( strid ( obj2 ), 'c6' );
+    t.is ( strid ( obj2 ), 'c6' );
 
   });
 
