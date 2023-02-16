@@ -1,12 +1,11 @@
 
 /* IMPORT */
 
-import {SUPPORTS_SYMBOLS_AS_WEAKMAP_KEYS} from './constants';
+import MildMap from 'mild-map';
 
 /* HELPERS */
 
-let cacheStrong = new Map<unknown, number> ();
-let cacheWeak = new WeakMap<object, number> ();
+let cache = new MildMap<unknown, number> ();
 let counter = 1;
 let {is} = Object;
 
@@ -30,7 +29,6 @@ const identifier = ( value: unknown ): string => {
 
   if ( type === 'object' || type === 'function' || type === 'symbol' ) {
 
-    const cache = ( !SUPPORTS_SYMBOLS_AS_WEAKMAP_KEYS && type === 'symbol' ) ? cacheStrong : cacheWeak;
     const cachedId = cache.get ( value );
     const id = cachedId || counter++;
 

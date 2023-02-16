@@ -20,6 +20,9 @@
     "unique",
     "identifier"
   ],
+  "dependencies": {
+    "mild-map": "^1.1.1"
+  },
   "devDependencies": {
     "fava": "^0.0.7",
     "tsex": "^1.1.4",
