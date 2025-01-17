@@ -7,18 +7,19 @@ Get a unique string identifier for any input value.
 - All values that are the same according to `Object.is` will have the same string identifier.
 - All values that are different according to `Object.is` will have different string identifiers.
 - If your engine hasn't implemented [this](https://github.com/tc39/proposal-symbols-as-weakmap-keys) proposal then input symbols will be kept in memory indefinitely.
-- Records and Tuples are not supported yet, the function will throw for unknown types like that.
 
 ## Install
 
 ```sh
-npm install --save strid
+npm install strid
 ```
 
 ## Usage
 
 ```ts
 import strid from 'strid';
+
+// Let's get a unique string identifier for some values
 
 strid ( null ); // => 'n';
 strid ( undefined ); // => 'u';
